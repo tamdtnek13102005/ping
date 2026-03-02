@@ -1,0 +1,25 @@
+name: Keep Alive Ping
+
+on:
+  schedule:
+    - cron: '* * * * *'  
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping mỗi 30 giây (2 lần/phút)
+        run: |
+          # Lần 1
+          curl -s https://tamdtnek13102005-ssh.hf.space/?folder=/workspace
+          curl -s https://tamdtnek13102005-hadoop.hf.space/?folder=/workspace
+          echo "✅ Ping lần 1 lúc $(date)"
+
+          # Chờ 30 giây
+          sleep 30
+
+          # Lần 2
+          curl -s https://tamdtnek13102005-ssh.hf.space/?folder=/workspace
+          curl -s https://tamdtnek13102005-hadoop.hf.space/?folder=/workspace
+          echo "✅ Ping lần 2 lúc $(date)"
