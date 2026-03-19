@@ -18,3 +18,7 @@ jobs:
         run: |
           curl -s https://tamdtnek13102005-hadoop.hf.space/?folder=/workspace
           echo "✅ Pinged Server 2 at $(date)"
+      - name: Ping Server 1
+        run: |
+          curl -s https://tamdtnek13102005-hadoopgk.hf.space/?folder=/workspace
+          echo "✅ Pinged Server 3 at $(date)"
